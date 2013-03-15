@@ -47,7 +47,12 @@ class Detroit extends \Slim\Router
         }
 
         //Invoke callable
-        call_user_func_array($route->getCallable(), array_values($route->getParams()));
+        $mResult  =  call_user_func_array($route->getCallable(), array_values($route->getParams()));
+		if($mResult instanceof \Slim\Represent)
+		{
+			$mResult->renderOutput();
+			exit;
+		}
 
         return true;
     }

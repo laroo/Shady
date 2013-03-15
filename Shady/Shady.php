@@ -1,9 +1,10 @@
 <?php
+namespace Slim;
 
 require_once 'Detroit.php';
 require_once 'Eightmile.php';
+require_once 'Represent.php';
 
-namespace Slim;
 
 /**
  * 
