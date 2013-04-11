@@ -4,7 +4,6 @@ namespace Slim\Shady;
 
 class Detroit extends \Slim\Router
 {
-
     /**
      * Map a route object to a callback function
      * @param  string     $pattern      The URL pattern (ie. "/books/:id")
@@ -13,7 +12,18 @@ class Detroit extends \Slim\Router
      */
     public function map($pattern, $callable)
     {
-        $route = new \Slim\Shady\Eightmile($pattern, $callable);
+    	if(isset($callable[2])) // callable2 contains constructorparams.
+    	{
+    		$constructorparams  =  $callable[2];
+    		unset($callable[2]);
+    	}
+
+    	$route = new \Slim\Shady\Eightmile($pattern, $callable);
+
+        if(isset($constructorparams))
+        {
+        	$route->setConstructorParams($constructorparams);
+        }
         $this->routes[] = $route;
 
         return $route;
@@ -41,7 +51,16 @@ class Detroit extends \Slim\Router
     	if (is_array($route->getCallable())) {
     		$aFunct = $route->getCallable();
     		if (is_string($aFunct[0])) {
-	        	$aFunct[0] = new $aFunct[0];
+    			if($route instanceof \Slim\Shady\Eightmile && $route->getHasConstructorParams())
+    			{
+    				$params  =  $route->getConstructorParams();
+	        		$aFunct[0] = new $aFunct[0]($params);
+	        		unset($aFunct[2]);
+    			}
+    			else 
+    			{
+    				$aFunct[0] = new $aFunct[0];
+    			}
 	        	$route->setCallable($aFunct);
     		}
         }

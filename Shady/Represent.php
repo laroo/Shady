@@ -38,11 +38,13 @@ class Represent extends Slim
 		if(!is_string($psOutputDataFormat))
 		{
 			ob_start();
-			
 			print_r($psOutputDataFormat);
-			
 			$ob  =  ob_end_clean();
 			throw new \InvalidArgumentException('Illegal datatype for $psOutputDataFormat :' . $ob);
+		}
+		if($this->sOutputDatacontainer == 'redirect' && $psOutputDataFormat != 'str' && $psOutputDataFormat != 'string' )
+		{
+			throw new \InvalidArgumentException('Illegal value for $psOutputDataFormat using outputdatacontainer "redirect" :' . $psOutputDataFormat);
 		}
 		$aAlowedOutputDataFormats  =  array(
 			  'int'      => 'int'
@@ -63,10 +65,15 @@ class Represent extends Slim
 		$aAlowedOutputDataContainers  =  array(
 			  'model'
 			, 'collection'
+			, 'redirect'
 		);
 		if(!in_array($psOutputDataContainer, $aAlowedOutputDataContainers))
 		{
 			throw new \InvalidArgumentException('Illegal $psOutputDataContainer');
+		}
+		if($psOutputDataContainer == 'redirect')
+		{
+			$this->setRepresentFormat('string');
 		}
 		$this->sOutputDatacontainer  =  $psOutputDataContainer;
 	}
