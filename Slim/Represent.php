@@ -42,7 +42,7 @@ class Represent extends Slim
 			$ob  =  ob_end_clean();
 			throw new \InvalidArgumentException('Illegal datatype for $psOutputDataFormat :' . $ob);
 		}
-		if($this->sOutputDatacontainer == 'redirect' && $psOutputDataFormat != 'str' && $psOutputDataFormat != 'string' )
+		if($this->sOutputDatacontainer == 'redirect' && $psOutputDataFormat !== 'str' && $psOutputDataFormat !== 'string' )
 		{
 			throw new \InvalidArgumentException('Illegal value for $psOutputDataFormat using outputdatacontainer "redirect" :' . $psOutputDataFormat);
 		}
@@ -73,7 +73,7 @@ class Represent extends Slim
 		}
 		if($psOutputDataContainer == 'redirect')
 		{
-			$this->setRepresentFormat('string');
+			$this->setOutputDataFormat('string');
 		}
 		$this->sOutputDatacontainer  =  $psOutputDataContainer;
 	}

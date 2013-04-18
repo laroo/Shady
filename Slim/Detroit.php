@@ -12,7 +12,7 @@ class Detroit extends \Slim\Router
      */
     public function map($pattern, $callable)
     {
-    	if(isset($callable[2])) // callable2 contains constructorparams.
+    	if(count($callable) == 3 && isset($callable[2])) // callable2 contains constructorparams.
     	{
     		$constructorparams  =  $callable[2];
     		unset($callable[2]);
