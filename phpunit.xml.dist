@@ -17,10 +17,10 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./Shady/</directory>
-        </whitelist>
-    </filter>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">./Shady/</directory>
+		</whitelist>
+	</filter>
 
 </phpunit>
