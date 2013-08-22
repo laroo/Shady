@@ -11,3 +11,5 @@ throw new \LogicException('Run "composer install --dev" to create autoloader.');
 }
 }
 require_once($sAutoloadFile);
+
+error_reporting(-1);
