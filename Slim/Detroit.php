@@ -4,30 +4,41 @@ namespace Slim\Shady;
 
 class Detroit extends \Slim\Router
 {
-    /**
-     * Map a route object to a callback function
-     * @param  string     $pattern      The URL pattern (ie. "/books/:id")
-     * @param  mixed      $callable     Anything that returns TRUE for is_callable()
-     * @return \Slim\Route
-     */
-    public function map($pattern, $callable)
-    {
-    	if(count($callable) == 3 && isset($callable[2])) // callable2 contains constructorparams.
-    	{
-    		$constructorparams  =  $callable[2];
-    		unset($callable[2]);
-    	}
+	/**
+	 * Add a route object to the router
+	 * @param  \Slim\Route     $route      The Slim Route
+	 */
+	public function map(\Slim\Route $route)
+	{
+		list($groupPattern, $groupMiddleware) = $this->processGroups();
 
-    	$route = new \Slim\Shady\Eightmile($pattern, $callable);
+		$route->setPattern($groupPattern . $route->getPattern());
+		$this->routes[] = $route;
 
-        if(isset($constructorparams))
-        {
-        	$route->setConstructorParams($constructorparams);
-        }
-        $this->routes[] = $route;
 
-        return $route;
-    }
+		foreach ($groupMiddleware as $middleware) {
+			$route->setMiddleware($middleware);
+		}
+	}
+
+//    public function map($pattern, $callable)
+//    {
+//    	if(count($callable) == 3 && isset($callable[2])) // callable2 contains constructorparams.
+//    	{
+//    		$constructorparams  =  $callable[2];
+//    		unset($callable[2]);
+//    	}
+//
+//    	$route = new \Slim\Shady\Eightmile($pattern, $callable);
+//
+//        if(isset($constructorparams))
+//        {
+//        	$route->setConstructorParams($constructorparams);
+//        }
+//        $this->routes[] = $route;
+//
+//        return $route;
+//    }
 
     /**
      * Dispatch route

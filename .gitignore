@@ -1,0 +1,4 @@
+.htaccess
+composer.lock
+vendor/
+test/codecoverage/

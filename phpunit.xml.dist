@@ -17,10 +17,14 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./Shady/</directory>
-        </whitelist>
-    </filter>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">./Slim/</directory>
+		</whitelist>
+	</filter>
+
+	<logging>
+		<log type="coverage-html" target="./test/codecoverage" charset="UTF-8" />
+	</logging>
 
 </phpunit>
