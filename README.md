@@ -2,7 +2,7 @@
 
 A set of shady Slim Framework middlewares that can solve some annoyances...
 
-[![Build Status](https://travis-ci.org/laroo/Shady.png?branch=prefix-postfix)](https://travis-ci.org/laroo/Shady)
+[![Build Status](https://travis-ci.org/laroo/Shady.png?branch=master)](https://travis-ci.org/laroo/Shady)
 
 ## What does it contain?
 
