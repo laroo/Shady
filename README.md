@@ -26,8 +26,6 @@ Callable URL: /my/name/is
 
 ## UrlPrefix
 
-**todo**
-
 Allow to use a generic URL-prefix without having to define it every time:
 
 Example 1: simple
@@ -42,15 +40,17 @@ Callable URL: /api/login
 
 Example 2: advanced using regex-pattern
 
-     <?php
+    <?php
      $oApp = new \Slim\Slim();
-     $oPrefix = new \Slim\Shady\Middleware\UrlPrefix('/api/:version');
-     $oPrefix->setConditions(array(
+    $oRoutePrefix = new \Slim\Shady\Middleware\UrlPrefix('/api/:version');
+    $oRoutePrefix->setConditions(array(
         'version' => 'v[0-9]+'
-     ));
-     $oApp->add($oPrefix);
-     $oApp->get('/login', function () { echo "Slim Shady!"; });
-     $oApp->run();
+    ));
+    $oApp->add($oRoutePrefix);
+    $oApp->get('/login', function () use ($oApp) {
+        echo "API-version: ".$oApp->urlprefix_params['version'];
+    });
+    $oApp->run();
 
 Callable URL: /api/v2/login
 
