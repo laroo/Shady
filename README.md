@@ -2,13 +2,14 @@
 
 A set of shady Slim Framework middlewares that can solve some annoyances...
 
+[![Build Status](https://travis-ci.org/laroo/Shady.png?branch=prefix-postfix)](https://travis-ci.org/laroo/Shady)
+
 ## What does it contain?
 
 Available middlewares:
 - ApacheVirtualHostFix
 - UrlPrefix
 - UrlPostfix
-- NoMoreAnonymousFunctions
 
 ## ApacheVirtualHostFix
 
@@ -69,11 +70,6 @@ Example:
     $oApp->run();
 
 Callable URL: /api/v2/login.json
-
-## NoMoreAnonymousFunctions
-
-**todo**
-Slim disallows the use of non-anonymous functions for routing. This makes reusing your code impossible.
 
 ## How to install?
 

@@ -11,7 +11,3 @@ throw new \LogicException('Run "composer install --dev" to create autoloader.');
 }
 }
 require_once($sAutoloadFile);
-
-require_once __DIR__.'/../Slim/Detroit.php';
-require_once __DIR__.'/../Slim/Eightmile.php';
-require_once __DIR__.'/../Slim/Represent.php';
