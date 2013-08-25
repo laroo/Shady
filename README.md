@@ -78,3 +78,7 @@ Use Composer to install Shady and it's dependencies (Slim + PHP)
 ## License
 
 Shady is released under the MIT public license.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/laroo/shady/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
