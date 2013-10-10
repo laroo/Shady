@@ -3,6 +3,8 @@
 A set of shady Slim Framework middlewares that can solve some annoyances...
 
 [![Build Status](https://travis-ci.org/laroo/Shady.png?branch=master)](https://travis-ci.org/laroo/Shady)
+[![Dependencies Status](https://d2xishtp1ojlk0.cloudfront.net/d/8725394)](http://depending.in/laroo/Shady)
+[![Latest Stable Version](https://poser.pugx.org/Slim/Shady/v/stable.png)](https://packagist.org/packages/Slim/Shady)
 
 ## What does it contain?
 
