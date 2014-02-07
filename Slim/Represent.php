@@ -140,6 +140,19 @@ class Represent extends Slim
 		$this->sDebugMessage  =  $psDebugMessage;
 	}
 
+	public function getDebugCall()
+	{
+		return $this->sDebugCall;
+	}
+	public function getDebugMethod()
+	{
+		return $this->sDebugMethod;
+	}
+	public function getDebugMessage()
+	{
+		return $this->sDebugMessage;
+	}
+
 	public function renderOutput()
 	{
 		switch($this->sRepresentFormat)
