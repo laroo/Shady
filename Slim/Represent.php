@@ -3,7 +3,7 @@ namespace Slim;
 
 /**
  * 
- * @see I am who I am and I say what I think. I’m not putting a face on for the record.
+ * @see I am who I am and I say what I think. Iï¿½m not putting a face on for the record.
  */
 class Represent extends Slim 
 {
@@ -167,7 +167,6 @@ class Represent extends Slim
 
 	public function renderJson()
 	{
-		self::http_addnocacheheaders();
 		header('Content-type: application/json; charset=utf-8');
 		echo json_encode($this->_toArray());
 	}
